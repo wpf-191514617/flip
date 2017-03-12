@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="120px"
+        android:paddingLeft="30px"
+        android:paddingRight="30px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@drawable/bg_login_editor"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="40px"
+            android:paddingRight="40px">
+
+            <ImageView
+                android:layout_width="42px"
+                android:layout_height="42px"
+                android:src="@drawable/icon_user"/>
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:layout_marginLeft="18px"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:textSize="26px"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:hint="请输入手机号"
+                android:maxLines="1"
+                android:inputType="phone"
+                />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@drawable/bg_login_editor"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginTop="57px"
+            android:paddingLeft="40px"
+            android:paddingRight="40px">
+
+            <ImageView
+                android:layout_width="42px"
+                android:layout_height="42px"
+                android:src="@drawable/icon_authcode"/>
+
+            <EditText
+                android:id="@+id/etAuthCode"
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:layout_marginLeft="18px"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:textSize="26px"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:hint="请输入验证码"
+                android:maxLines="1"
+                android:maxLength="6"
+                android:inputType="numberDecimal"
+                />
+
+
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/btnSendAuthCode"
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@drawable/bg_btn_sendcode"
+            android:textSize="28px"
+            android:textColor="@color/white"
+            android:layout_marginTop="48px"
+            android:text="发送验证码"/>
+        
+
+        <Button
+            android:id="@+id/btnCommit"
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@drawable/bg_btn_login"
+            android:textSize="28px"
+            android:textColor="@color/white"
+            android:layout_marginTop="30px"
+            android:text="立即找回"/>
+
+
+
+        <TextView
+            android:id="@+id/tvToRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/orange"
+            android:textSize="26px"
+            android:paddingTop="24px"
+            android:paddingLeft="10px"
+            android:text="没有账户立即注册"/>
+        
+        
+        </LinearLayout>
+
+</LinearLayout>

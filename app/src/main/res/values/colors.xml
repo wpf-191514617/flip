@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#007D2C</color>
+    <color name="colorPrimaryDark">#006524</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="orange">#ff8800</color>
+    <color name="gray">#999999</color>
+    <color name="text_color">#525a66</color>
+    <color name="text_hint_color">#848d99</color>
+    <color name="white">#ffffff</color>
+    <color name="orange1">#ef9801</color>
+    <color name="select_false">#d0cfcd</color>
+    <color name="layoutbg">#f2f2f2</color>
+    <color name="line">#cccccc</color>
+</resources>

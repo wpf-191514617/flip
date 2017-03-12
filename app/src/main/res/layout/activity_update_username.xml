@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:clipToPadding="true"
+              android:background="@color/layoutbg"
+              android:orientation="vertical">
+
+    <include layout="@layout/toolbar"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"/>
+
+    <include layout="@layout/line"/>
+    <LinearLayout
+        style="@style/horInfoLayout"
+        >
+
+        <TextView
+            android:id="@+id/tvEditName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24px"
+            android:textColor="@color/text_hint_color"
+            android:text="用户昵称"/>
+
+
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:background="@null"
+            android:textSize="24px"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textColor="@color/text_color"
+            android:hint="请输入用户名"
+            android:textColorHint="@color/text_hint_color"/>
+
+    </LinearLayout>
+    <include layout="@layout/line"/>
+</LinearLayout>

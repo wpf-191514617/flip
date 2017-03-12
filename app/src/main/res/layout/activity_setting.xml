@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:background="@color/layoutbg"
+    android:orientation="vertical">
+    
+    <include layout="@layout/toolbar"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        />
+    <include layout="@layout/line"/>
+
+    <LinearLayout
+        android:id="@+id/layoutAboutUs"
+        style="@style/mineInfoLayout"
+        android:paddingLeft="24px"
+        android:paddingRight="24px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="关于我们"
+            android:textColor="@color/text_color"
+            android:textSize="24px"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/enter"/>
+
+    </LinearLayout>
+    <include layout="@layout/line"/>
+    <LinearLayout
+        android:id="@+id/layoutCheckoutVersion"
+        style="@style/mineInfoLayout"
+        android:paddingLeft="24px"
+        android:paddingRight="24px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="20px"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="检查更新"
+                android:textColor="@color/text_color"
+                android:textSize="24px"
+                />
+            <TextView
+                android:id="@+id/tvCurrentVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="当前版本"
+                android:gravity="right"
+                android:textColor="@color/text_hint_color"
+                android:textSize="24px"
+                />
+        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/enter"/>
+
+    </LinearLayout>
+    <include layout="@layout/line"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px"/>
+
+
+
+    <include layout="@layout/line"/>
+    <LinearLayout
+        android:id="@+id/layoutLogout"
+        style="@style/mineInfoLayout"
+        android:paddingLeft="24px"
+        android:paddingRight="24px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="20px"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退出登录"
+                android:textColor="@color/text_color"
+                android:textSize="24px"
+                />
+           
+        </LinearLayout>
+    </LinearLayout>
+    <include layout="@layout/line"/>
+    
+    
+    
+    
+
+</LinearLayout>

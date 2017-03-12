@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:clipToPadding="true"
+                android:background="@color/layoutbg"
+              android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar"/>
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="48px"
+        android:paddingBottom="30px"
+        android:paddingLeft="30px"
+        android:paddingRight="30px">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15px"
+            android:paddingRight="15px"
+            >
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="bottom|left">
+                
+               
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="24px"
+                    android:layout_marginLeft="3px"/>
+                
+            </LinearLayout>
+
+            
+        </LinearLayout>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="18px"/>
+        
+    
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="20px"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivQRCode"
+                android:layout_width="320px"
+                android:layout_height="320px"
+                android:scaleType="fitXY"
+                android:background="@color/white"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="26px"
+                android:layout_marginTop="44px"
+                android:text="我的邀请码"
+                android:visibility="gone"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textSize="36px"
+                android:layout_marginTop="14px"
+                android:text=""
+                android:textStyle="bold"
+                android:visibility="gone"/>
+            
+            <Button
+                android:id="@+id/btnShare"
+                android:layout_width="420px"
+                android:layout_height="78px"
+                android:background="@drawable/bg_btn_login"
+                android:textColor="@color/white"
+                android:text="将邀请码发送给好友"
+                android:layout_marginTop="80px"/>
+            
+            
+            
+        </LinearLayout>
+        
+        
+        
+        
+    </LinearLayout>
+
+    </ScrollView>
+
+    
+
+</LinearLayout>

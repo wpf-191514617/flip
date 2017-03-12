@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/layoutbg">
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/layoutUserPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20px"
+        android:paddingBottom="20px"
+        android:paddingLeft="30px"
+        android:paddingRight="30px"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:background="@color/white">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="@color/text_color"
+                android:layout_centerVertical="true"
+                android:text="头像"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civUserPhoto"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@drawable/icon_default_user"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/enter"/>
+
+    </LinearLayout>
+    <include layout="@layout/line"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"/>
+    <include layout="@layout/line"/>
+    <LinearLayout
+        android:id="@+id/layoutUserName"
+        style="@style/horInfoLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="20px">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="@color/text_color"
+                android:layout_centerVertical="true"
+                android:text="用户昵称"/>
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="#848d99"
+                android:layout_alignParentRight="true"
+                android:text="XXX"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/tv1"
+                android:gravity="right"
+                android:layout_marginLeft="30px"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/enter"/>
+    </LinearLayout>
+    <include layout="@layout/line"/>
+
+    <LinearLayout
+        style="@style/horInfoLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="20px">
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="@color/text_color"
+                android:layout_centerVertical="true"
+                android:text="手机号码"/>
+
+            <TextView
+                android:id="@+id/tvUserPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="#a0a0a9"
+                android:layout_alignParentRight="true"
+                android:text="13298567710"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/tv2"
+                android:gravity="right"
+                android:layout_marginLeft="30px"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/enter"/>
+    </LinearLayout>
+
+    <include layout="@layout/line"/>
+
+    <LinearLayout
+        android:id="@+id/layoutUserSignature"
+        style="@style/horInfoLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="20px">
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="@color/text_color"
+                android:layout_centerVertical="true"
+                android:text="个人简介"/>
+
+            <TextView
+                android:id="@+id/tvUserSignature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="#848d99"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/tv3"
+                android:gravity="right"
+                android:layout_marginLeft="30px"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/enter"/>
+    </LinearLayout>
+    <include layout="@layout/line"/>
+
+    
+    <LinearLayout
+        android:id="@+id/layoutUpdatePwd"
+        style="@style/horInfoLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="20px">
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="@color/text_color"
+                android:layout_centerVertical="true"
+                android:text="修改密码"/>
+
+           
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/enter"/>
+    </LinearLayout>
+    <include layout="@layout/line"/>
+    
+    
+    
+    
+    
+    
+    
+</LinearLayout>

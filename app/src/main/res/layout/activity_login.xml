@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="120px"
+        android:paddingLeft="30px"
+        android:paddingRight="30px">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@drawable/bg_login_editor"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="40px"
+            android:paddingRight="40px">
+            
+            <ImageView
+                android:layout_width="42px"
+                android:layout_height="42px"
+                android:src="@drawable/icon_user"/>
+            
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:layout_marginLeft="18px"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:textSize="26px"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:hint="请输入手机号"
+                android:maxLines="1"
+                android:inputType="phone"
+                />
+            
+            
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@drawable/bg_login_editor"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginTop="57px"
+            android:paddingLeft="40px"
+            android:paddingRight="40px">
+
+            <ImageView
+                android:layout_width="42px"
+                android:layout_height="42px"
+                android:src="@drawable/icon_password"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="48px"
+                android:layout_marginLeft="18px"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:textSize="26px"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:hint="请输入密码"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                />
+
+
+        </LinearLayout>
+        
+        
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@drawable/bg_btn_login"
+            android:textSize="28px"
+            android:textColor="@color/white"
+            android:layout_marginTop="107px"
+            android:text="登录"/>
+        
+        
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10px"
+            android:paddingRight="10px">
+            
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="60px"
+                android:paddingBottom="30px"
+                android:textColor="@color/text_color"
+                android:text="立即注册"
+                android:textSize="26px"
+                android:paddingRight="30px"/>
+
+
+
+            <TextView
+                android:id="@+id/tvForgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="60px"
+                android:paddingBottom="30px"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/text_color"
+                android:text="忘记密码？"
+                android:textSize="26px"
+                android:paddingLeft="30px"/>
+            
+            
+            
+        </RelativeLayout>
+        
+        
+    </LinearLayout>
+    
+    
+</LinearLayout>

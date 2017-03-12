@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/layoutbg"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/layoutUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:paddingBottom="36px"
+                android:paddingLeft="30px"
+                android:paddingRight="30px"
+                android:paddingTop="36px">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingRight="20px">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/civUserPhoto"
+                        android:layout_width="90px"
+                        android:layout_height="90px"
+                        android:src="@drawable/icon_default_user"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20px"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="用户昵称"
+                            android:textColor="@color/white"
+                            android:ellipsize="end"
+                            android:textSize="24px"/>
+
+                        <TextView
+                            android:id="@+id/tvUserPlot"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:singleLine="true"
+                            android:text="总积分：0"
+                            android:textColor="@color/white"
+                            android:textSize="20px"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <include layout="@layout/line"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="32px"/>
+
+            <include layout="@layout/line"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="30px"
+                android:paddingRight="30px">
+
+
+                <LinearLayout
+                    android:id="@+id/layoutAccountInfo"
+                    style="@style/mineInfoLayout">
+
+                    <ImageView
+                        style="@style/mineInfoIcon"
+                        android:src="@drawable/ziliao"/>
+
+                    <TextView
+                        style="@style/mineInfoText"
+                        android:text="个人资料"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/enter"/>
+                </LinearLayout>
+
+                <include layout="@layout/line"/>
+
+                <LinearLayout
+                    android:id="@+id/layoutUserBet"
+                    style="@style/mineInfoLayout">
+
+                    <ImageView
+                        style="@style/mineInfoIcon"
+                        android:src="@drawable/jingcai"/>
+
+                    <TextView
+                        style="@style/mineInfoText"
+                        android:text="我的竞猜"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/enter"/>
+                </LinearLayout>
+
+                <include layout="@layout/line"/>
+
+                <LinearLayout
+                    android:id="@+id/layoutUserFocusOn"
+                    style="@style/mineInfoLayout">
+
+                    <ImageView
+                        style="@style/mineInfoIcon"
+                        android:src="@drawable/guanzhu"/>
+
+                    <TextView
+                        style="@style/mineInfoText"
+                        android:text="我的关注"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/enter"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <include layout="@layout/line"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="32px"/>
+
+            <include layout="@layout/line"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="30px"
+                android:paddingRight="30px">
+
+
+                <LinearLayout
+                    android:id="@+id/layoutEarnPoints"
+                    style="@style/mineInfoLayout">
+
+                    <ImageView
+                        style="@style/mineInfoIcon"
+                        android:src="@drawable/jifen"/>
+
+                    <TextView
+                        style="@style/mineInfoText"
+                        android:text="轻松赚积分"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/enter"/>
+                </LinearLayout>
+
+                <include layout="@layout/line"/>
+
+                <LinearLayout
+                    android:id="@+id/layoutShareTo"
+                    style="@style/mineInfoLayout">
+
+                    <ImageView
+                        style="@style/mineInfoIcon"
+                        android:src="@drawable/fenxiang"/>
+
+                    <TextView
+                        style="@style/mineInfoText"
+                        android:text="分享好友（送积分）"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/enter"/>
+                </LinearLayout>
+
+                <include layout="@layout/line"/>
+
+                <LinearLayout
+                    android:id="@+id/layoutPointsFor"
+                    style="@style/mineInfoLayout">
+
+                    <ImageView
+                        style="@style/mineInfoIcon"
+                        android:src="@drawable/duihuan"/>
+
+                    <TextView
+                        style="@style/mineInfoText"
+                        android:text="积分兑换"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/enter"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <include layout="@layout/line"/>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="32px"/>
+
+            <include layout="@layout/line"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="30px"
+                android:paddingRight="30px">
+
+
+                <LinearLayout
+                    android:id="@+id/layoutFeedBack"
+                    style="@style/mineInfoLayout">
+
+                    <ImageView
+                        style="@style/mineInfoIcon"
+                        android:src="@drawable/fankui"/>
+
+                    <TextView
+                        style="@style/mineInfoText"
+                        android:text="反馈"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/enter"/>
+                </LinearLayout>
+
+                <include layout="@layout/line"/>
+
+                <LinearLayout
+                    android:id="@+id/layoutSetting"
+                    style="@style/mineInfoLayout">
+
+                    <ImageView
+                        style="@style/mineInfoIcon"
+                        android:src="@drawable/shezhi"/>
+
+                    <TextView
+                        style="@style/mineInfoText"
+                        android:text="设置"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/enter"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <include layout="@layout/line"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

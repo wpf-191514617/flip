@@ -1,0 +1,89 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+
+    </style>
+
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoneTranslucent" parent="AppTheme.Base">
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/orange</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="myTheme.actionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">#fff</item>
+    </style>
+
+    <style name="myPhotoPickerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="actionBarTheme">@style/myTheme.actionBar</item>
+        <item name="colorPrimary">#007D2C</item>
+    </style>
+
+    <style name="mineInfoLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">90px</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    
+    <style name="horInfoLayout" parent="@style/mineInfoLayout">
+        <item name="android:paddingLeft">30px</item>
+        <item name="android:paddingRight">30px</item>
+    </style>
+    
+    <style name="mineInfoIcon">
+        <item name="android:layout_width">50px</item>
+        <item name="android:layout_height">50px</item>
+    </style>
+
+    <style name="mineInfoText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">24px</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:layout_marginLeft">20px</item>
+    </style>
+
+    <style name="dialogStyle">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="popuStyle">
+        <item name="android:windowEnterAnimation">@anim/popup_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_anim_out</item>
+    </style>
+    
+</resources>
