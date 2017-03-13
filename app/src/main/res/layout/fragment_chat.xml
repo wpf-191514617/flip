@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="50px"
+    android:paddingRight="50px"
+    android:paddingTop="80px">
 
+    <LinearLayout
+        android:id="@+id/layoutfootballchat"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:background="@drawable/bg_btn_green_round"
+        android:gravity="center">
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="足球群聊"
+            android:textSize="36px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="在线人数 / 群组人数"
+            android:textSize="20px"
+            android:layout_marginLeft="20px"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/layoutBaseketballchat"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_marginTop="60px"
+        android:background="@drawable/bg_btn_green_round"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="篮球群聊"
+                android:textSize="36px"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="在线人数 / 群组人数"
+                android:textSize="20px"
+                android:layout_marginLeft="20px"/>
+        </LinearLayout>
+    </LinearLayout>
+    
+    
 </LinearLayout>

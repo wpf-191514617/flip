@@ -17,7 +17,7 @@ public class BaseRace
      */
 
     private int status;
-    private int last_id;
+    private String last_id;
     private String error;
 
     public int getStatus()
@@ -30,12 +30,12 @@ public class BaseRace
         this.status = status;
     }
 
-    public int getLast_id()
+    public String getLast_id()
     {
         return last_id;
     }
 
-    public void setLast_id(int last_id)
+    public void setLast_id(String last_id)
     {
         this.last_id = last_id;
     }

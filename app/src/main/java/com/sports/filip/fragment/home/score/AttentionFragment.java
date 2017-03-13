@@ -7,5 +7,18 @@ package com.sports.filip.fragment.home.score;
  * 
  */
 
-public class AttentionFragment extends InstantFragment{
+public class AttentionFragment extends ExponentialFragment{
+
+    @Override
+    protected void getData()
+    {
+        mHandler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                showNormal();
+            }
+        } , 3000);
+    }
 }

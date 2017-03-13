@@ -1,24 +1,12 @@
 package com.sports.filip.fragment.home;
 
-import com.sports.filip.R;
-import com.sports.filip.fragment.base.BaseFragment;
+import com.sports.filip.fragment.home.score.ExponentialFragment;
 
 /**
  * Created by pengfei on 2016/11/14.
  */
 
-public class RecordFragment extends BaseFragment
+public class RecordFragment extends ExponentialFragment
 {
 
-    @Override
-    protected int getContentViewLayoutID()
-    {
-        return R.layout.fragment_record;
-    }
-
-    @Override
-    protected void initViewAndData()
-    {
-
-    }
 }
