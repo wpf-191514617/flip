@@ -14,7 +14,6 @@ import com.awhh.everyenjoy.library.http.OkHttpUtils;
 import com.awhh.everyenjoy.library.http.callback.StringCallback;
 import com.awhh.everyenjoy.library.http.utils.GsonUtils;
 import com.awhh.everyenjoy.library.widget.SwipeRefreshAndLoadLayout;
-import com.sports.filip.Constants;
 import com.sports.filip.R;
 import com.sports.filip.entity.response.MatchContentResponse;
 import com.sports.filip.entity.response.RollBallResponse;
@@ -98,11 +97,8 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
 
         OkHttpUtils.getInstance().post()
                 .tag(this)
-                .url(Constants.BaseUrl + "index.php?g=app&m=score&a=instant")
-                .addParams("last_id", "0")
-                .addParams("type", "3")
-                .addParams("uid", "")
-                .addParams("cid", "")
+                .url("http://football.eyunshop.cn/index.php?g=api&m=footballapi&a=get_ball_info")
+                .addParams("page", "1")
                 .build().execute(new StringCallback()
         {
             @Override
@@ -116,14 +112,15 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
             public void onResponse(String string, int id)
             {
                 refreshLayout.setRefreshing(false);
-                RollBallResponse response = GsonUtils
+                /*RollBallResponse response = GsonUtils
                         .gsonToBean(string, RollBallResponse.class);
                 if (response.getStatus() != 1) {
                     showError("");
                     return;
-                }
+                }*/
+                List<RollBallResponse.ListBean> list = GsonUtils.gsonToList(string , RollBallResponse.ListBean.class);
                 reStoreView();
-                rollBallListAdapter.clearAddData(response.getList());
+                rollBallListAdapter.clearAddData(list);
             }
         });
         

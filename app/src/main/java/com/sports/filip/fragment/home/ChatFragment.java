@@ -4,11 +4,15 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.awhh.everyenjoy.library.base.util.StringUtils;
 import com.sports.filip.R;
+import com.sports.filip.activity.account.LoginActivity;
 import com.sports.filip.fragment.base.BaseFragment;
+import com.sports.filip.util.CacheHelper;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import io.rong.imkit.RongIM;
 
 /**
  * Created by pengfei on 2016/11/14.
@@ -23,6 +27,9 @@ public class ChatFragment extends BaseFragment
     LinearLayout layoutfootballchat;
     @Bind(R.id.layoutBaseketballchat)
     LinearLayout layoutBaseketballchat;
+    
+    private final String GROUP_ID_SCORE = "1";
+    private final String GROUP_ID_BASEKETBALL = "2";
 
     @Override
     protected int getContentViewLayoutID()
@@ -43,23 +50,22 @@ public class ChatFragment extends BaseFragment
         switch (view.getId())
         {
             case R.id.layoutfootballchat:
-                chat();
+                chat(GROUP_ID_SCORE);
                 break;
             case R.id.layoutBaseketballchat:
-                chat();
+                chat(GROUP_ID_BASEKETBALL);
                 break;
         }
     }
     
-    private void chat(){
-        mHandler.postDelayed(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                showToastShort("初始化 IM SDK失败！");
-            }
-        } , 1500);
+    private void chat(String groupId){
+        if(StringUtils.isEmpty(CacheHelper.getUserId())){
+            readyGo(LoginActivity.class);
+            return;
+        }
+
+        RongIM.getInstance().startGroupChat(getActivity() , groupId , "群聊");
+        
     }
     
 }

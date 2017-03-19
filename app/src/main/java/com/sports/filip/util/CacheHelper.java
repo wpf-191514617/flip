@@ -1,12 +1,16 @@
 package com.sports.filip.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.awhh.everyenjoy.library.base.util.BaseAppManager;
 import com.awhh.everyenjoy.library.base.util.StringUtils;
 import com.awhh.everyenjoy.library.http.utils.GsonUtils;
 import com.awhh.everyenjoy.library.util.ACache;
+import com.sports.filip.App;
 import com.sports.filip.Constants;
+import com.sports.filip.entity.LoginUser;
 import com.sports.filip.entity.response.UserResponse;
 
 /**
@@ -58,5 +62,17 @@ public class CacheHelper
         return GsonUtils.gsonToBean(user , UserResponse.class);
     }
     
-
+    
+    public static void saveCurrentLoginUserInfo(String name , String pass){
+        SharedPreferences preferences = App.getAppContext().getSharedPreferences("flip" , Activity.MODE_PRIVATE);
+        preferences.edit().putString("name" , name).putString("pass" , pass).commit();
+    }
+    
+    public static LoginUser getCurrentLoginUserInfo(){
+        SharedPreferences preferences = App.getAppContext().getSharedPreferences("flip" , Activity.MODE_PRIVATE);
+        String name = preferences.getString("name" , "");
+        String pass = preferences.getString("pass" , "");
+        return new LoginUser(name , pass);
+    }
+    
 }

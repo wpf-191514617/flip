@@ -14,20 +14,33 @@
         android:name=".App"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.sports.filip.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rc_file_path" />
+        </provider>
+        
         <meta-data
             android:name="design_height"
             android:value="1280"/>
         <meta-data
             android:name="design_width"
             android:value="720"/>
-        <activity android:name=".activity.HomeActivity">
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.account.RegisterActivity"
             android:screenOrientation="portrait"/>
@@ -82,6 +95,19 @@
         
         <activity android:name=".activity.InvatationActivity"
                   android:screenOrientation="portrait"/>
+        
+        <activity android:name=".activity.ConversationActivity"
+                  android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="com.sports.filip"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+        
     </application>
 
 </manifest>

@@ -15,7 +15,9 @@ import com.sports.filip.Constants;
 import com.sports.filip.EventCode;
 import com.sports.filip.R;
 import com.sports.filip.activity.base.BaseActivity;
+import com.sports.filip.activity.callback.OnConnectRongIMCallBack;
 import com.sports.filip.entity.response.RegisterResponse;
+import com.sports.filip.manager.UserManager;
 import com.sports.filip.util.CacheHelper;
 
 import butterknife.Bind;
@@ -81,7 +83,7 @@ public class LoginActivity extends BaseActivity
         }
     }
 
-    private void toLogin(String phone, String pwd)
+    private void toLogin(final String phone, final String pwd)
     {
         showLoadingDialog();
         OkHttpUtils.getInstance().post().tag(this)
@@ -108,11 +110,34 @@ public class LoginActivity extends BaseActivity
                     return;
                 }
                 CacheHelper.saveCurrentUser(response.getUser());
+                CacheHelper.saveCurrentLoginUserInfo(phone , pwd);
+                connect("LEl1wOWjr/KHidy3zGxca48e8DIRONkQ8BWmunj6HdP/M5q2PermuGhRIZ+U8h8eD3GR49RnbCg=");
+            }
+        });
+    }
+
+    private void connect(String string)
+    {
+        UserManager.getInstance().signRongIM(string, new OnConnectRongIMCallBack()
+        {
+            @Override
+            public void onSuccess()
+            {
+                
+                showToastShort("登录成功！");
                 EventCenter center = new EventCenter(EventCode.CODE_LOGINSUCCESS);
                 EventBus.getDefault().post(center);
                 finish();
             }
+
+            @Override
+            public void onFailed()
+            {
+                showToastShort("登录失败，请重新登录！");
+            }
         });
+        
+        
     }
 
     @Override
