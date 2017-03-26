@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Library</string>
     <string name="birthdayahead">生日时间不能再当前时间之后！</string>
-    <string name="chk_userpwd_len">密码为6到20位的字母或数字</string>
+    <string name="chk_userpwd_len">密码为5到20位的字母或数字</string>
     <string name="please_setting_net">当前无网络连接，是否设置？</string>
     <string name="common_error_msg">抱歉,系统出错了!\n请点击屏幕重试~</string>
     <string name="common_empty_msg">抱歉,暂未获取到数据!\n请点击屏幕重试~</string>

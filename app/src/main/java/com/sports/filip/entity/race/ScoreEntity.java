@@ -1,5 +1,7 @@
 package com.sports.filip.entity.race;
 
+import com.awhh.everyenjoy.library.db.annotate.Id;
+
 /**
  * author:pengfei
  * date:2017/3/12
@@ -41,7 +43,9 @@ public class ScoreEntity
      * a : 1489329266
      * is_follow : 0
      */
-
+    @Id
+    private int _id;
+    
     private String id;
     private String league;
     private String color;
@@ -71,6 +75,16 @@ public class ScoreEntity
     private String a_rank;
     private int a;
     private String is_follow;
+
+    public int get_id()
+    {
+        return _id;
+    }
+
+    public void set_id(int _id)
+    {
+        this._id = _id;
+    }
 
     public String getId()
     {

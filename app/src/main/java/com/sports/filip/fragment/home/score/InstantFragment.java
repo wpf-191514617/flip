@@ -1,6 +1,7 @@
 package com.sports.filip.fragment.home.score;
 
 
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -10,11 +11,16 @@ import com.awhh.everyenjoy.library.http.OkHttpUtils;
 import com.awhh.everyenjoy.library.http.callback.StringCallback;
 import com.awhh.everyenjoy.library.http.utils.GsonUtils;
 import com.awhh.everyenjoy.library.widget.SwipeRefreshAndLoadLayout;
+import com.awhh.everyenjoy.library.widget.listener.OnLoadMoreListener;
 import com.sports.filip.Constants;
 import com.sports.filip.R;
 import com.sports.filip.adapter.ScoreListAdapter;
+import com.sports.filip.adapter.callback.OnFollowScoreMatchCallBack;
+import com.sports.filip.entity.race.ScoreEntity;
 import com.sports.filip.entity.race.ScoreListResponse;
 import com.sports.filip.fragment.base.BaseFragment;
+
+import java.util.List;
 
 import butterknife.Bind;
 import okhttp3.Call;
@@ -25,7 +31,8 @@ import okhttp3.Call;
  * 足球----即时
  */
 
-public class InstantFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener
+public class InstantFragment extends BaseFragment implements
+        SwipeRefreshLayout.OnRefreshListener, OnFollowScoreMatchCallBack , OnLoadMoreListener
 {
     @Bind(R.id.listView)
     ListView listView;
@@ -34,6 +41,8 @@ public class InstantFragment extends BaseFragment implements SwipeRefreshLayout.
     @Bind(R.id.layoutContent)
     LinearLayout layoutContent;
     
+    private String last_id = "0";
+
     private ScoreListAdapter scoreListAdapter;
 
     @Override
@@ -47,8 +56,10 @@ public class InstantFragment extends BaseFragment implements SwipeRefreshLayout.
     protected void initViewAndData()
     {
         refreshLayout.setOnRefreshListener(this);
-        scoreListAdapter = new ScoreListAdapter(getActivity() , null);
+        refreshLayout.setLoadingListener(this);
+        scoreListAdapter = new ScoreListAdapter(getActivity(), null);
         listView.setAdapter(scoreListAdapter);
+        scoreListAdapter.setFollowScoreMatchCallBack(this);
         autoRefresh();
     }
 
@@ -69,6 +80,7 @@ public class InstantFragment extends BaseFragment implements SwipeRefreshLayout.
     protected void onReloadThe()
     {
         super.onReloadThe();
+        last_id = "0";
         getData();
         reStoreView();
     }
@@ -83,6 +95,7 @@ public class InstantFragment extends BaseFragment implements SwipeRefreshLayout.
     @Override
     public void onRefresh()
     {
+        last_id = "0";
         getData();
     }
 
@@ -92,7 +105,7 @@ public class InstantFragment extends BaseFragment implements SwipeRefreshLayout.
         OkHttpUtils.getInstance().post()
                 .tag(this)
                 .url(Constants.BaseUrl + "index.php?g=app&m=score&a=instant")
-                .addParams("last_id", "0")
+                .addParams("last_id", last_id)
                 .addParams("type", "3")
                 .addParams("uid", "")
                 .addParams("cid", "")
@@ -102,6 +115,7 @@ public class InstantFragment extends BaseFragment implements SwipeRefreshLayout.
             public void onError(Call call, Exception e, int id)
             {
                 refreshLayout.setRefreshing(false);
+                refreshLayout.setLoading(false);
                 showError("");
             }
 
@@ -109,15 +123,44 @@ public class InstantFragment extends BaseFragment implements SwipeRefreshLayout.
             public void onResponse(String response, int id)
             {
                 refreshLayout.setRefreshing(false);
-                ScoreListResponse scoreListResponse = GsonUtils.getGson().fromJson(response , ScoreListResponse.class);
-                if(scoreListResponse.getStatus()  != 1){
+                refreshLayout.setLoading(false);
+                ScoreListResponse scoreListResponse = GsonUtils.getGson().fromJson(response, ScoreListResponse.class);
+                if (scoreListResponse.getStatus() != 1 && last_id.equals("0"))
+                {
                     showError("");
                     return;
                 }
-                scoreListAdapter.clearAddData(scoreListResponse.getList());
+                if (last_id.equals("0"))
+                    scoreListAdapter.clearAddData(scoreListResponse.getList());
+                else
+                    scoreListAdapter.addMoreDatas(scoreListResponse.getList());
+                last_id = scoreListResponse.getLast_id();
+                if (scoreListResponse.getList().size() < 1)
+                    refreshLayout.setCanLoad(false);
             }
         });
-
     }
     
+    private void refreshListAdapter(final List<ScoreEntity> list){
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                scoreListAdapter.clearAddData(list);
+            }
+        }, 1000);
+    }
+
+    @Override
+    public void onFollow(ScoreEntity entity)
+    {
+
+    }
+
+    @Override
+    public void onLoadMore()
+    {
+        getData();
+    }
 }

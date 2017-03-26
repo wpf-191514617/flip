@@ -1,8 +1,7 @@
 package com.sports.filip;
 
-import android.content.Context;
-
 import com.awhh.everyenjoy.library.base.MyApplication;
+
 
 import io.rong.imkit.RongIM;
 
@@ -20,12 +19,11 @@ public class App extends MyApplication
     {
         super.onCreate();
         RongIM.init(getApplicationContext());
+//        UMShareAPI.get(this);
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-       // MultiDex.install(this);
-        
-    }
+//    {
+//        PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
+//        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+//    }
 }

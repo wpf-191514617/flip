@@ -55,7 +55,6 @@ public class SplashActivity extends BaseActivity
 
     private void toLogin(final LoginUser user)
     {
-        showLoadingDialog();
         OkHttpUtils.getInstance().post().tag(this)
                 .url(Constants.BASEURL + "index.php?g=app&m=user&a=login")
                 .addParams("username" , user.getName())
@@ -65,23 +64,21 @@ public class SplashActivity extends BaseActivity
             @Override
             public void onError(Call call, Exception e, int id)
             {
-                dismissLoadingDialog();
                 showToastShort("登录失败！");
             }
 
             @Override
-            public void onResponse(String string, int id)
-            {
-                dismissLoadingDialog();
-                RegisterResponse response =
-                        GsonUtils.gsonToBean(string , RegisterResponse.class);
-                if(response.getStatus() != 1){
-                    showToastShort(response.getError());
+                    public void onResponse(String string, int id)
+                    {
+                        RegisterResponse response =
+                                GsonUtils.gsonToBean(string , RegisterResponse.class);
+                        if(response.getStatus() != 1){
+                            showToastShort(response.getError());
                     return;
                 }
                 CacheHelper.saveCurrentUser(response.getUser());
                 CacheHelper.saveCurrentLoginUserInfo(user.getName() , user.getPass());
-                connect("LEl1wOWjr/KHidy3zGxca48e8DIRONkQ8BWmunj6HdP/M5q2PermuGhRIZ+U8h8eD3GR49RnbCg=");
+                connect(response.getUser().getToken());
             }
         });
     }

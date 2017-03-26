@@ -66,15 +66,14 @@ public class ShareUtil
     }
 
 
-    class OnShareClickListener implements View.OnClickListener {
-/*
+   /* class OnShareClickListener implements View.OnClickListener {
         private SHARE_MEDIA media;
         private ShareEntity shareEntity;
 
         public OnShareClickListener(SHARE_MEDIA media, ShareEntity shareEntity) {
             this.media = media;
             this.shareEntity = shareEntity;
-        }*/
+        }
 
         @Override
         public void onClick(View v) {
@@ -84,7 +83,7 @@ public class ShareUtil
             }
 
 
-            /*new ShareAction(mContext)
+            new ShareAction(mContext)
                     .withTitle(shareEntity.getTitle())
                     .withText(shareEntity.getContent())
                     //.withMedia(new UMImage(mContext, shareEntity.getImgUri()))
@@ -113,9 +112,9 @@ public class ShareUtil
                         public void onCancel(SHARE_MEDIA platform) {
                             Toast.makeText(mContext, platform + " 分享取消", Toast.LENGTH_SHORT).show();
                         }
-                    }).share();*/
+                    }).share();
         }
-    }
+    }*/
 
 
 }

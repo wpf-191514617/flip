@@ -137,7 +137,7 @@ public class StringUtils {
 		}
 		// 密码：范围验证
 		int passwordLegth = password.length();
-		if (passwordLegth <6 || passwordLegth > 20) {
+		if (passwordLegth <5 || passwordLegth > 20) {
 			
 			ToastUtils.showToastShort(R.string.chk_userpwd_len);
 			return false;

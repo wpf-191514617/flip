@@ -185,7 +185,6 @@ public class CompetitionFragment extends BaseFragment implements
                     scoreListAdapter.addMoreDatas(listResponse.getList());
                 }
                 last_id = listResponse.getLast_id();
-                
             }
         });
     }

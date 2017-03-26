@@ -37,10 +37,11 @@ public class CacheHelper
 
     
     public static String getUserId(){
-        if(StringUtils.isEmpty(userId)){
-            return getUserIdFromCache();
-        }
-        return userId;
+       if (getUser() == null)
+       {
+           return null;
+       }
+        return getUser().getId();
     }
     
     private static String getUserIdFromCache()

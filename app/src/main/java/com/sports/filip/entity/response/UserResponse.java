@@ -30,6 +30,7 @@ public class UserResponse
     private String user_url;
     private String score;
     private String signature;
+    private String token;
 
     public String getId()
     {
@@ -119,5 +120,15 @@ public class UserResponse
     public void setSignature(String signature)
     {
         this.signature = signature;
+    }
+
+    public String getToken()
+    {
+        return token;
+    }
+
+    public void setToken(String token)
+    {
+        this.token = token;
     }
 }

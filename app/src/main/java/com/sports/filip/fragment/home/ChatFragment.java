@@ -28,8 +28,8 @@ public class ChatFragment extends BaseFragment
     @Bind(R.id.layoutBaseketballchat)
     LinearLayout layoutBaseketballchat;
     
-    private final String GROUP_ID_SCORE = "1";
-    private final String GROUP_ID_BASEKETBALL = "2";
+    private final String GROUP_ID_SCORE = "1111";
+    private final String GROUP_ID_BASEKETBALL = "2222";
 
     @Override
     protected int getContentViewLayoutID()

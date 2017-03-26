@@ -80,9 +80,16 @@ public class RegisterActivity extends BaseActivity
                 case R.id.tvUserAgree:
                     break;
                 case R.id.btnRegister:
+                    String phone = etPhone.getText().toString();
                     String pwd = etPassword.getText().toString();
                     String pwd1 = etPassword2.getText().toString();
-                    if(!StringUtils.isPassword(pwd)){
+                    if (!StringUtils.isMobileNO(phone))
+                    {
+                        showToastShort("手机号格式错误");
+                        return;
+                    }
+                    if(StringUtils.isEmpty(pwd)){
+                       showToastShort("输入的密码不能为空");
                         return;
                     }
                     if(!pwd.equals(pwd1)){

@@ -111,7 +111,7 @@ public class LoginActivity extends BaseActivity
                 }
                 CacheHelper.saveCurrentUser(response.getUser());
                 CacheHelper.saveCurrentLoginUserInfo(phone , pwd);
-                connect("LEl1wOWjr/KHidy3zGxca48e8DIRONkQ8BWmunj6HdP/M5q2PermuGhRIZ+U8h8eD3GR49RnbCg=");
+                connect(response.getUser().getToken());
             }
         });
     }

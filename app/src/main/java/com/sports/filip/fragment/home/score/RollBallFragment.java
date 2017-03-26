@@ -14,6 +14,7 @@ import com.awhh.everyenjoy.library.http.OkHttpUtils;
 import com.awhh.everyenjoy.library.http.callback.StringCallback;
 import com.awhh.everyenjoy.library.http.utils.GsonUtils;
 import com.awhh.everyenjoy.library.widget.SwipeRefreshAndLoadLayout;
+import com.google.gson.reflect.TypeToken;
 import com.sports.filip.R;
 import com.sports.filip.entity.response.MatchContentResponse;
 import com.sports.filip.entity.response.RollBallResponse;
@@ -27,9 +28,8 @@ import okhttp3.Call;
 
 /**
  * Created by pengfei on 2016/11/17.
- * 
- *  足球-----滚球
- * 
+ * <p>
+ * 足球-----滚球
  */
 
 public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener
@@ -41,9 +41,9 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
     SwipeRefreshAndLoadLayout refreshLayout;
     @Bind(R.id.layoutContent)
     LinearLayout layoutContent;
-    
+
     private RollBallListAdapter rollBallListAdapter;
-    
+
     @Override
     protected int getContentViewLayoutID()
     {
@@ -54,10 +54,11 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
     protected void initViewAndData()
     {
         refreshLayout.setOnRefreshListener(this);
-        rollBallListAdapter = new RollBallListAdapter(getActivity() , null);
+        rollBallListAdapter = new RollBallListAdapter(getActivity(), null);
         listView.setAdapter(rollBallListAdapter);
         autoRefresh();
     }
+
     private void autoRefresh()
     {
         refreshLayout.postDelayed(new Runnable()
@@ -118,30 +119,25 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
                     showError("");
                     return;
                 }*/
-                List<RollBallResponse.ListBean> list = GsonUtils.gsonToList(string , RollBallResponse.ListBean.class);
+                //List<RollBallResponse.ListBean> list = GsonUtils.gsonToList(string , RollBallResponse.ListBean.class);
+                List<RollBallResponse.ListBean> list = GsonUtils.getGson().fromJson(string,
+                        new TypeToken<List<RollBallResponse.ListBean>>()
+                        {}.getType());
                 reStoreView();
                 rollBallListAdapter.clearAddData(list);
             }
         });
-        
+
     }
-
-
-
-
-
-
-
-
-
 
 
     class RollBallListAdapter extends BaseListAdapter<RollBallResponse.ListBean>
     {
 
-        private List<MatchContentResponse.ListBean> listBeen = new ArrayList<>();
+        private List<RollBallResponse.ListBean> listBeen = new ArrayList<>();
 
-        public List<MatchContentResponse.ListBean> getListBeen() {
+        public List<RollBallResponse.ListBean> getListBeen()
+        {
             return listBeen;
         }
 
@@ -149,15 +145,17 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
          * @param context
          * @param mDatas
          */
-        public RollBallListAdapter(Context context, List<RollBallResponse.ListBean> mDatas) {
+        public RollBallListAdapter(Context context, List<RollBallResponse.ListBean> mDatas)
+        {
             super(context, R.layout.item_rollball, mDatas);
         }
 
         @Override
-        protected void fillData(ViewHolderHelper holderHelper, int position, final RollBallResponse.ListBean data) {
+        protected void fillData(ViewHolderHelper holderHelper, int position, final RollBallResponse.ListBean data)
+        {
             holderHelper.setText(R.id.tvLeague, data.getLeague());
             holderHelper.setTextColor(R.id.tvLeague, Color.parseColor(data.getColor()));
-            holderHelper.setText(R.id.tvTime, data.getMinute()+" '");
+            holderHelper.setText(R.id.tvTime, data.getMinute() + " '");
             holderHelper.setText(R.id.tvHomeName, data.getH_name());
             holderHelper.setText(R.id.tvVisitName, data.getA_name());
             holderHelper.setText(R.id.tvHomeScore, data.getH_score());
@@ -176,54 +174,53 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
 
             final TextView tvVisitDX = holderHelper.getView(R.id.tvVisitDX);
             tvVisitDX.setText(data.getA_dx() + "" + data.getA_dx1());
-           
+
 
             final View layoutHomeRang = holderHelper.getView(R.id.layoutHomeRang);
 
-            if (isContains(data.getId() + "-" + "全场让球-主")) {
+           /* if (isContains(data.getId() + "-" + "全场让球-主")) {
                 layoutHomeRang.setSelected(true);
                 tvHomeRang.setTextColor(Color.parseColor("#ffffff"));
-            } else {
-                tvHomeRang.setTextColor(Color.parseColor("#ff8800"));
-                layoutHomeRang.setSelected(false);
-            }
+            } else {*/
+            tvHomeRang.setTextColor(Color.parseColor("#ff8800"));
+            layoutHomeRang.setSelected(false);
+//            }
 
-          
 
             final View layoutVisitRang = holderHelper.getView(R.id.layoutVisitRang);
 
-            if (isContains(data.getId() + "-" + "全场让球-客")) {
+            /*if (isContains(data.getId() + "-" + "全场让球-客")) {
                 layoutVisitRang.setSelected(true);
                 tvVisitRang.setTextColor(Color.parseColor("#ffffff"));
-            } else {
-                layoutVisitRang.setSelected(false);
-                tvVisitRang.setTextColor(Color.parseColor("#ff8800"));
-            }
+            } else {*/
+            layoutVisitRang.setSelected(false);
+            tvVisitRang.setTextColor(Color.parseColor("#ff8800"));
+//            }
 
-          
+
             final View layoutHomeDX = holderHelper.getView(R.id.layoutHomeDX);
 
-            if (isContains(data.getId() + "-" + "全场大小-主")) {
+            /*if (isContains(data.getId() + "-" + "全场大小-主")) {
                 layoutHomeDX.setSelected(true);
                 tvHomeDX.setTextColor(Color.parseColor("#ffffff"));
-            } else {
-                layoutHomeDX.setSelected(false);
-                tvHomeDX.setTextColor(Color.parseColor("#ff8800"));
-            }
+            } else {*/
+            layoutHomeDX.setSelected(false);
+            tvHomeDX.setTextColor(Color.parseColor("#ff8800"));
+//            }
 
             final View layoutVisitDX = holderHelper.getView(R.id.layoutVisitDX);
 
-            if (isContains(data.getId() + "-" + "全场大小-客")) {
+            /*if (isContains(data.getId() + "-" + "全场大小-客")) {
                 layoutVisitDX.setSelected(true);
                 tvVisitDX.setTextColor(Color.parseColor("#ffffff"));
-            } else {
-                layoutVisitDX.setSelected(false);
-                tvVisitDX.setTextColor(Color.parseColor("#ff8800"));
-            }
+            } else {*/
+            layoutVisitDX.setSelected(false);
+            tvVisitDX.setTextColor(Color.parseColor("#ff8800"));
+//            }
 
         }
 
-        private boolean isContains(String beanStr) {
+        /*private boolean isContains(String beanStr) {
             for (int i = 0; i < listBeen.size(); i++) {
                 String liststr = listBeen.get(i).getId() + "-" + listBeen.get(i).getType();
                 if (beanStr.equals(liststr)) {
@@ -231,13 +228,16 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
                 }
             }
             return false;
-        }
+        }*/
 
-        private void removeData(MatchContentResponse.ListBean listBean) {
+        private void removeData(MatchContentResponse.ListBean listBean)
+        {
             String beanStr = listBean.getId() + "-" + listBean.getType();
-            for (int i = 0; i < listBeen.size(); i++) {
+            for (int i = 0; i < listBeen.size(); i++)
+            {
                 String liststr = listBeen.get(i).getId() + "-" + listBean.getType();
-                if (beanStr.equals(liststr)) {
+                if (beanStr.equals(liststr))
+                {
                     listBeen.remove(i);
                 }
             }
@@ -246,10 +246,6 @@ public class RollBallFragment extends BaseFragment implements SwipeRefreshLayout
 
 
     }
-    
-    
-    
-    
-    
+
 
 }
