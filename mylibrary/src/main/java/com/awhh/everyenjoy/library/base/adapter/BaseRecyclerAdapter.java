@@ -34,9 +34,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     protected OnItemChildCheckedChangeListener mOnItemChildCheckedChangeListener;
 
 //    protected ImageLoader imageLoader;
-    
+
 //    protected ImageLoaderHelper loaderHelper;
-    
+
     public void setOnRecyclerItemLongClickListener(OnRecyclerItemLongClickListener mOnRVItemLongClickListener)
     {
         this.mOnRVItemLongClickListener = mOnRVItemLongClickListener;
@@ -62,10 +62,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
 //        loaderHelper = ImageLoaderHelper.getInstance(MyApplication.getApplication());
     }
 
-    
-    
-    
-    
+
     /**
      * 设置数据集
      *
@@ -119,6 +116,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
 
     /**
      * 填充数据的方法
+     *
      * @param viewHolderHelper
      * @param position
      * @param item
@@ -142,8 +140,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      *
      * @param datas
      */
-    public void addNewDatas(List<T> datas) {
-        if (datas != null) {
+    public void addNewDatas(List<T> datas)
+    {
+        if (datas != null)
+        {
             mDatas.addAll(0, datas);
             notifyItemRangeInserted(0, datas.size());
         }
@@ -154,8 +154,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      *
      * @param datas
      */
-    public void addMoreDatas(List<T> datas) {
-        if (datas != null) {
+    public void addMoreDatas(List<T> datas)
+    {
+        if (datas != null)
+        {
             mDatas.addAll(mDatas.size(), datas);
             notifyItemRangeInserted(mDatas.size(), datas.size());
         }
@@ -165,7 +167,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     /**
      * 清空数据列表
      */
-    public void clear() {
+    public void clear()
+    {
         mDatas.clear();
         notifyDataSetChanged();
     }
@@ -175,7 +178,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      *
      * @param position
      */
-    public void removeItem(int position) {
+    public void removeItem(int position)
+    {
         mDatas.remove(position);
         notifyItemRemoved(position);
     }
@@ -185,7 +189,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      *
      * @param model
      */
-    public void removeItem(T model) {
+    public void removeItem(T model)
+    {
         removeItem(mDatas.indexOf(model));
     }
 
@@ -195,7 +200,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      * @param position
      * @param model
      */
-    public void addItem(int position, T model) {
+    public void addItem(int position, T model)
+    {
         mDatas.add(position, model);
         notifyItemInserted(position);
     }
@@ -205,7 +211,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      *
      * @param model
      */
-    public void addFirstItem(T model) {
+    public void addFirstItem(T model)
+    {
         addItem(0, model);
     }
 
@@ -214,7 +221,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      *
      * @param model
      */
-    public void addLastItem(T model) {
+    public void addLastItem(T model)
+    {
         addItem(mDatas.size(), model);
     }
 
@@ -224,7 +232,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      * @param location
      * @param newModel
      */
-    public void setItem(int location, T newModel) {
+    public void setItem(int location, T newModel)
+    {
         mDatas.set(location, newModel);
         notifyItemChanged(location);
     }
@@ -235,7 +244,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      * @param oldModel
      * @param newModel
      */
-    public void setItem(T oldModel, T newModel) {
+    public void setItem(T oldModel, T newModel)
+    {
         setItem(mDatas.indexOf(oldModel), newModel);
     }
 
@@ -245,7 +255,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      * @param fromPosition
      * @param toPosition
      */
-    public void moveItem(int fromPosition, int toPosition) {
+    public void moveItem(int fromPosition, int toPosition)
+    {
         mDatas.add(toPosition, mDatas.remove(fromPosition));
         notifyItemMoved(fromPosition, toPosition);
     }

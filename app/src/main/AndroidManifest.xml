@@ -38,6 +38,16 @@
         <meta-data
             android:name="design_width"
             android:value="720"/>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58d60a628f4a9d6d530016ed">
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng">
+        </meta-data>
+        
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -79,6 +89,15 @@
         <activity android:name=".activity.account.EditSuggestActivity"
                   android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.NationsLeagueListActivity"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.LeagueMatchListActivity"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.ScoreDetailActivity"
+                  android:screenOrientation="portrait"/>
+        
         <activity android:name="com.awhh.everyenjoy.library.localimage.PhotoPickerActivity"
                   android:screenOrientation="portrait"
                   android:theme="@style/myPhotoPickerTheme"/>
@@ -102,6 +121,9 @@
         
         <activity android:name=".activity.InvatationActivity"
                   android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.MyAttentionActivity"
+                  android:screenOrientation="portrait"/>
         
         <activity android:name=".activity.ConversationActivity"
                   android:screenOrientation="portrait">
@@ -119,27 +141,26 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
 
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true" >
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="tencent100424468" />
+
+                <data android:scheme="tencent1106084332" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>-->
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
         
     </application>
 

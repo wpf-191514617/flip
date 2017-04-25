@@ -15,10 +15,12 @@ import com.sports.filip.R;
 import com.sports.filip.activity.CreditActivity;
 import com.sports.filip.activity.FeedBackActivity;
 import com.sports.filip.activity.InvatationActivity;
+import com.sports.filip.activity.MyAttentionActivity;
 import com.sports.filip.activity.SettingActivity;
 import com.sports.filip.activity.base.BaseActivity;
 import com.sports.filip.entity.ShareEntity;
 import com.sports.filip.entity.response.UserResponse;
+import com.sports.filip.util.AppHelper;
 import com.sports.filip.util.CacheHelper;
 import com.sports.filip.util.ShareUtil;
 
@@ -133,13 +135,15 @@ public class MineInfoActivity extends BaseActivity
             case R.id.layoutUserBet:
                 break;
             case R.id.layoutUserFocusOn:
+                ready(MyAttentionActivity.class);
                 break;
             case R.id.layoutEarnPoints:
                 ready(InvatationActivity.class);
                 break;
             case R.id.layoutShareTo:
-                ShareUtil.getInstance(this).sharToPlatform(new ShareEntity("测试标题", "测试内容", "http://hfcn.cc/",
-                        "http://f.hiphotos.baidu.com/image/h%3D200/sign=3853eb794f540923b569647ea259d1dc/50da81cb39dbb6fde784f07c0f24ab18962b3788.jpg"));
+                ShareUtil.getInstance(this).sharToPlatform(new ShareEntity("体育高手", "邀请您加入体育高手"
+                        , AppHelper.getInvatationUrl(),
+                        ""));
                 break;
             case R.id.layoutPointsFor:
 //                ready(ShoppingActivity.class);

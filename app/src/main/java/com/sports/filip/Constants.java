@@ -19,12 +19,13 @@ public class Constants {
     
     public static class DBName{
         public static final String FOLLOW_SCORE = "follow_score_" + CacheHelper.getUserId();
+        public static final String FOLLOW_BASKETBALL = "follow_basket_" + CacheHelper.getUserId();
     }
     
    // public static final String BASEURL = "http://59.188.133.108/";
     public static final String BASEURL = "http://football.eyunshop.cn/";
-    
-    public static final String BaseUrl = "http://114.55.227.5/";
+    public static final String BaseUrl = BASEURL;
+    //public static final String BaseUrl = "http://114.55.227.5/";
     
    // public static final String URL = "http://football.eyunshop.cn/";
     

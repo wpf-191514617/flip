@@ -1,9 +1,14 @@
 package com.sports.filip;
 
 import com.awhh.everyenjoy.library.base.MyApplication;
+import com.awhh.everyenjoy.library.http.OkHttpUtils;
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
 
+import java.util.concurrent.TimeUnit;
 
 import io.rong.imkit.RongIM;
+import okhttp3.OkHttpClient;
 
 /**
  * author:pengfei
@@ -18,12 +23,16 @@ public class App extends MyApplication
     public void onCreate()
     {
         super.onCreate();
+        UMShareAPI.get(this);
         RongIM.init(getApplicationContext());
-//        UMShareAPI.get(this);
+        OkHttpClient httpClient = new OkHttpClient.Builder()
+                .connectTimeout(20000L, TimeUnit.MILLISECONDS)
+                .readTimeout(20000L, TimeUnit.MILLISECONDS)
+                .build();
+        OkHttpUtils.getInstance().initClient(httpClient);
     }
 
-//    {
-//        PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
-//        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
-//    }
+    {
+        PlatformConfig.setQQZone("1106084332", "LVEYMv4LWtoCg9Ew");
+    }
 }

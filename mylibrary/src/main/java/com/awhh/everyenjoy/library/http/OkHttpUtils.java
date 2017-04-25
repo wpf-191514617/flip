@@ -166,7 +166,7 @@ public class OkHttpUtils
             @Override
             public void run()
             {
-                Trace.d("httpRequest" , "error------" + e.getMessage().toString());
+                Trace.d("httpRequest" , "error------");
                 callback.onError(call, e, id);
                 callback.onAfter(id);
             }

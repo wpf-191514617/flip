@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_catalog_listview.xml",
-        "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_picsel_catalog_listview.xml"
-    },
-    {
         "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_discussion_notification_message.xml",
         "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_item_discussion_notification_message.xml"
+    },
+    {
+        "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_catalog_listview.xml",
+        "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_picsel_catalog_listview.xml"
     },
     {
         "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_cs_alert_human_evaluation.xml",
@@ -96,12 +96,12 @@
         "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_item_base_conversation.xml"
     },
     {
-        "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_input_pager_layout.xml",
-        "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_input_pager_layout.xml"
-    },
-    {
         "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_emoticon_tab_item.xml",
         "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_ext_emoticon_tab_item.xml"
+    },
+    {
+        "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_input_pager_layout.xml",
+        "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_input_pager_layout.xml"
     },
     {
         "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_original.xml",
@@ -128,12 +128,12 @@
         "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_item_image_message.xml"
     },
     {
-        "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_albums.xml",
-        "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_ac_albums.xml"
-    },
-    {
         "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_root_menu_item.xml",
         "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_ext_root_menu_item.xml"
+    },
+    {
+        "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_albums.xml",
+        "source": "D:\\Android  Project\\Flip\\IMKit\\src\\main\\res\\layout\\rc_ac_albums.xml"
     },
     {
         "merged": "D:\\Android  Project\\Flip\\IMKit\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_plugin_item.xml",

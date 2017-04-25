@@ -1,7 +1,10 @@
 package com.sports.filip.activity;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.awhh.everyenjoy.library.http.OkHttpUtils;
 import com.awhh.everyenjoy.library.http.callback.StringCallback;
@@ -40,7 +43,10 @@ public class SplashActivity extends BaseActivity
     @Override
     protected void getBundleExtras(Bundle extras)
     {
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,
+                WindowManager.LayoutParams. FLAG_FULLSCREEN);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
     @Override
@@ -49,7 +55,7 @@ public class SplashActivity extends BaseActivity
         LoginUser user = CacheHelper.getCurrentLoginUserInfo();
         if (user.isEmpty())
             splash();
-        else 
+        else
             toLogin(user);
     }
 
@@ -57,27 +63,32 @@ public class SplashActivity extends BaseActivity
     {
         OkHttpUtils.getInstance().post().tag(this)
                 .url(Constants.BASEURL + "index.php?g=app&m=user&a=login")
-                .addParams("username" , user.getName())
-                .addParams("password" , user.getPass())
+                .addParams("username", user.getName())
+                .addParams("password", user.getPass())
                 .build().execute(new StringCallback()
         {
             @Override
             public void onError(Call call, Exception e, int id)
             {
                 showToastShort("登录失败！");
+                CacheHelper.saveCurrentUser("");
+                splash();
             }
 
             @Override
-                    public void onResponse(String string, int id)
-                    {
-                        RegisterResponse response =
-                                GsonUtils.gsonToBean(string , RegisterResponse.class);
-                        if(response.getStatus() != 1){
-                            showToastShort(response.getError());
+            public void onResponse(String string, int id)
+            {
+                RegisterResponse response =
+                        GsonUtils.gsonToBean(string, RegisterResponse.class);
+                if (response.getStatus() != 1)
+                {
+                    showToastShort(response.getError());
+                    CacheHelper.saveCurrentUser("");
+                    splash();
                     return;
                 }
                 CacheHelper.saveCurrentUser(response.getUser());
-                CacheHelper.saveCurrentLoginUserInfo(user.getName() , user.getPass());
+                CacheHelper.saveCurrentLoginUserInfo(user.getName(), user.getPass());
                 connect(response.getUser().getToken());
             }
         });
@@ -94,9 +105,6 @@ public class SplashActivity extends BaseActivity
 
                 showToastShort("登录成功！");
                 toMain();
-                /*EventCenter center = new EventCenter(EventCode.CODE_LOGINSUCCESS);
-                EventBus.getDefault().post(center);
-                finish();*/
             }
 
             @Override
@@ -104,12 +112,11 @@ public class SplashActivity extends BaseActivity
             {
                 showToastShort("登录失败！");
                 CacheHelper.saveCurrentUser("");
-                CacheHelper.saveCurrentLoginUserInfo("" , "");
-                toMain();
+                splash();
             }
         });
     }
-    
+
     private void splash()
     {
         new Handler().postDelayed(new Runnable()
@@ -126,5 +133,12 @@ public class SplashActivity extends BaseActivity
     {
         readyGo(HomeActivity.class);
         finish();
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        OkHttpUtils.getInstance().cancelTag(this);
+        super.onDestroy();
     }
 }

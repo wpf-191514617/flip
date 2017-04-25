@@ -19,7 +19,7 @@ public class BaseketballFragment extends BaseTabFragment
 {
     @Override
     protected String[] getTabNames() {
-        return new String[]{"即时" , "滚球" , "赛事" ,"指数" , "关注"};
+        return new String[]{"即时" , "赛果" , "赛程" ,"指数" , "关注"};
     }
 
     @Override

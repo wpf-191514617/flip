@@ -39,7 +39,7 @@
             android:id="@+id/tvSignin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/text_hint_color"
             android:textSize="24px"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"

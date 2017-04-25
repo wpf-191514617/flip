@@ -9,7 +9,7 @@
         android:id="@+id/tvBetCompany"
         style="@style/tabItemParent"
         android:layout_width="144px"
-        android:text="公司"
+        android:text=""
         android:background="@drawable/bg_tab_item"/>
     
     <LinearLayout

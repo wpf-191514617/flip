@@ -13,5 +13,5 @@ public interface EventCode
     int CODE_UPDATE_SUGGEST = 0xA03;
     int CODE_UPDATE_PHOTO = 0xA04;
     int CODE_SCORE_FOLLOW = 0xA05;
-    int CODE_SCORE_BASKETBALL = 0xA06;
+    int CODE_BASKETBALL_FOLLOW = 0xA06;
 }

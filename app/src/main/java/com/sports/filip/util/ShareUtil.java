@@ -6,9 +6,16 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Toast;
 
+import com.awhh.everyenjoy.library.base.util.BaseAppManager;
+import com.awhh.everyenjoy.library.base.util.Trace;
 import com.sports.filip.R;
 import com.sports.filip.entity.ShareEntity;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 
 /**
  * Author：huafang2016
@@ -44,9 +51,9 @@ public class ShareUtil
         View layoutCircle = shareDialog.findViewById(R.id.layoutCircle);
        // layoutCircle.setOnClickListener(new OnShareClickListener(SHARE_MEDIA.WEIXIN_CIRCLE, shareEntity));
         View layoutQQ = shareDialog.findViewById(R.id.layoutQQ);
-      //  layoutQQ.setOnClickListener(new OnShareClickListener(SHARE_MEDIA.QQ, shareEntity));
+        layoutQQ.setOnClickListener(new OnShareClickListener(SHARE_MEDIA.QQ, shareEntity));
         View layoutQzone = shareDialog.findViewById(R.id.layoutQzone);
-       // layoutQzone.setOnClickListener(new OnShareClickListener(SHARE_MEDIA.QZONE, shareEntity));
+        layoutQzone.setOnClickListener(new OnShareClickListener(SHARE_MEDIA.QZONE, shareEntity));
         View layoutWeibo = shareDialog.findViewById(R.id.layoutWeibo);
         //layoutWeibo.setOnClickListener(new OnShareClickListener(SHARE_MEDIA.SINA, shareEntity));
         shareDialog.findViewById(R.id.btnCancelShare).setOnClickListener(new View.OnClickListener() {
@@ -66,7 +73,7 @@ public class ShareUtil
     }
 
 
-   /* class OnShareClickListener implements View.OnClickListener {
+    class OnShareClickListener implements View.OnClickListener {
         private SHARE_MEDIA media;
         private ShareEntity shareEntity;
 
@@ -82,7 +89,6 @@ public class ShareUtil
                 shareDialog.dismiss();
             }
 
-
             new ShareAction(mContext)
                     .withTitle(shareEntity.getTitle())
                     .withText(shareEntity.getContent())
@@ -91,6 +97,7 @@ public class ShareUtil
                     .withTargetUrl(shareEntity.getTargetUri())
                     .setPlatform(media)
                     .setCallback(new UMShareListener() {
+                        
                         @Override
                         public void onResult(SHARE_MEDIA platform) {
                             if (platform.name().equals("WEIXIN_FAVORITE")) {
@@ -114,7 +121,7 @@ public class ShareUtil
                         }
                     }).share();
         }
-    }*/
+    }
 
 
 }

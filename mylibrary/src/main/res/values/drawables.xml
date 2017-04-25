@@ -18,7 +18,7 @@
 <resources>
 
     <drawable name="progress_bar_bg">#80FFFFFF</drawable>
-    <drawable name="sr_primary">@android:color/black</drawable>
+    <drawable name="sr_primary">@android:color/holo_orange_dark</drawable>
     <drawable name="transparent">@android:color/transparent</drawable>
 
 </resources>

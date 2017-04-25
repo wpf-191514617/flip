@@ -3,6 +3,7 @@ package com.sports.filip.activity;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.awhh.everyenjoy.library.base.util.StringUtils;
 import com.sports.filip.R;
 import com.sports.filip.activity.base.BaseActivity;
 
@@ -20,7 +21,10 @@ public class ConversationActivity extends BaseActivity
     @Override
     protected String getTitleString()
     {
-        return null;
+        String title = getIntent().getData().getQueryParameter("title");
+        if (StringUtils.isEmpty(title))
+            return "群聊";
+        return title;
     }
 
     @Override

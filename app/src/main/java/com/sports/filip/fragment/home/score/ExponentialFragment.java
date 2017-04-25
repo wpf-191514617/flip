@@ -106,6 +106,7 @@ public class ExponentialFragment extends BaseFragment implements
                     showError("");
                     return;
                 }
+                showToastShort("服务不可用");
             }
 
             @Override

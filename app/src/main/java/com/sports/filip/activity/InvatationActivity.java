@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.sports.filip.R;
 import com.sports.filip.activity.base.BaseActivity;
 import com.sports.filip.entity.ShareEntity;
+import com.sports.filip.util.AppHelper;
 import com.sports.filip.util.ShareUtil;
 import com.zxing.CreateDCode;
 
@@ -31,7 +32,7 @@ public class InvatationActivity extends BaseActivity
     @Bind(R.id.btnShare)
     Button btnShare;
 
-    private String url = "http://114.55.227.5/index.php?g=app&m=user&a=register_rec&userid=2";
+    private String url;
 
     @Override
     protected String getTitleString()
@@ -54,6 +55,7 @@ public class InvatationActivity extends BaseActivity
     @Override
     protected void initViewAndData()
     {
+        url = AppHelper.getInvatationUrl();
         Bitmap bitmap = CreateDCode.CreateQRCode(url, 270);
         bitmap = CreateDCode.withIcon(bitmap, readBitMap(this, R.drawable.icon), 0.2f);
         ivQRCode.setImageBitmap(bitmap);
@@ -72,7 +74,8 @@ public class InvatationActivity extends BaseActivity
     @OnClick(R.id.btnShare)
     public void onClick()
     {
-        ShareUtil.getInstance(this).sharToPlatform(new ShareEntity("测试标题", "测试内容", "http://hfcn.cc/",
+        ShareUtil.getInstance(this).sharToPlatform(new ShareEntity("测试标题", "测试内容",
+                AppHelper.getInvatationUrl(),
                 "http://f.hiphotos.baidu.com/image/h%3D200/sign=3853eb794f540923b569647ea259d1dc/50da81cb39dbb6fde784f07c0f24ab18962b3788.jpg"));
 
     }

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingTop="60px"
+    android:paddingBottom="36px"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30px"
+        android:textColor="@color/text_color"
+        android:text="分享"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60px">
+
+       <!-- <LinearLayout
+            android:id="@+id/layoutWechat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="106px"
+                android:layout_height="106px"
+                android:src="@drawable/icon_share_wechat"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="#8b8b8b"
+                android:layout_marginTop="42px"
+                android:text="微信"/>
+
+        </LinearLayout>-->
+        <LinearLayout
+            android:id="@+id/layoutCircle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="106px"
+                android:layout_height="106px"
+                android:src="@drawable/icon_share_circle"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="#8b8b8b"
+                android:layout_marginTop="42px"
+                android:text="朋友圈"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutQQ"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="106px"
+                android:layout_height="106px"
+                android:src="@drawable/icon_share_qq"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="#8b8b8b"
+                android:layout_marginTop="42px"
+                android:text="QQ"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60px">
+
+        <LinearLayout
+            android:id="@+id/layoutQzone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="106px"
+                android:layout_height="106px"
+                android:src="@drawable/icon_share_zqone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="#8b8b8b"
+                android:layout_marginTop="42px"
+                android:text="QQ空间"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutWeibo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="106px"
+                android:layout_height="106px"
+                android:src="@drawable/icon_share_weibo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:textColor="#8b8b8b"
+                android:layout_marginTop="42px"
+                android:text="微博"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnCancelShare"
+        android:layout_width="match_parent"
+        android:layout_height="86px"
+        android:layout_marginTop="40px"
+        android:layout_marginLeft="28px"
+        android:layout_marginRight="28px"
+        android:textColor="@color/text_color"
+        android:background="@null"
+        android:text="取消"
+        android:textSize="30px"/>
+
+
+
+</LinearLayout>

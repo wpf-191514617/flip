@@ -1,12 +1,15 @@
 package com.sports.filip.fragment.home.score;
 
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.awhh.everyenjoy.library.base.activity.BaseWebActivity;
 import com.awhh.everyenjoy.library.http.OkHttpUtils;
 import com.awhh.everyenjoy.library.http.callback.StringCallback;
 import com.awhh.everyenjoy.library.http.utils.GsonUtils;
@@ -14,6 +17,7 @@ import com.awhh.everyenjoy.library.widget.SwipeRefreshAndLoadLayout;
 import com.awhh.everyenjoy.library.widget.listener.OnLoadMoreListener;
 import com.sports.filip.Constants;
 import com.sports.filip.R;
+import com.sports.filip.activity.ScoreDetailActivity;
 import com.sports.filip.adapter.ScoreListAdapter;
 import com.sports.filip.adapter.callback.OnFollowScoreMatchCallBack;
 import com.sports.filip.entity.race.ScoreEntity;
@@ -61,6 +65,19 @@ public class InstantFragment extends BaseFragment implements
         listView.setAdapter(scoreListAdapter);
         scoreListAdapter.setFollowScoreMatchCallBack(this);
         autoRefresh();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                ScoreEntity scoreEntity = scoreListAdapter.getItem(i);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(BaseWebActivity.BUNDLE_KEY_SHOW_BOTTOM_BAR , false);
+                bundle.putString(BaseWebActivity.BUNDLE_KEY_TITLE , scoreEntity.getLeague());
+                bundle.putString(BaseWebActivity.BUNDLE_KEY_URL , scoreEntity.getId());
+                readyGo(ScoreDetailActivity.class , bundle);
+            }
+        });
     }
 
     private void autoRefresh()
@@ -104,7 +121,7 @@ public class InstantFragment extends BaseFragment implements
 
         OkHttpUtils.getInstance().post()
                 .tag(this)
-                .url(Constants.BaseUrl + "index.php?g=app&m=score&a=instant")
+                .url(Constants.BASEURL + "index.php?g=app&m=score&a=instant")
                 .addParams("last_id", last_id)
                 .addParams("type", "3")
                 .addParams("uid", "")
